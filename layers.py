@@ -150,3 +150,27 @@ def sigmoid_prime(x: ndarray) -> ndarray:
 class Sigmoid(Activation):
     def __init__(self):
         super().__init__(sigmoid, sigmoid_prime)
+
+
+def relu(x: ndarray) -> ndarray:
+    """
+    Applies leaky relu function to the input of 'x'
+    :param x: ndarray
+    :return: ndarray
+    """
+    return np.maximum(0.01 * x, x)
+
+
+def relu_prime(x: ndarray) -> ndarray:
+    """
+    Applies derivative of leaky rule to given input 'x'
+    relu'(x) = x > 0 ? 1 : alpha
+    :param x: ndarray    :return:
+    """
+    dx = np.ones_like(x)
+    dx[x < 0] = 0.01
+    return dx
+
+class Relu(Activation):
+    def __init__(self):
+        super().__init__(relu, relu_prime)
