@@ -10,10 +10,10 @@ from typing import List
 
 import numpy as np
 
-from train import train
-from nn import NeuralNet
-from layers import Linear, Tanh
-from optimizer import SGD
+from inclinet.train import train
+from inclinet.neural_network import NeuralNet
+from inclinet.layers import Linear, Tanh
+from inclinet.optimizer import SGD
 
 
 def fizz_buzz_encode(x: int) -> List[int]:
