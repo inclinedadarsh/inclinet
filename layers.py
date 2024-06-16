@@ -127,3 +127,26 @@ def tanh_prime(x: ndarray) -> ndarray:
 class Tanh(Activation):
     def __init__(self):
         super().__init__(tanh, tanh_prime)
+
+
+def sigmoid(x: ndarray) -> ndarray:
+    """
+    Applies sigmoid function to the input 'x'
+    :param x: ndarray
+    :return: ndarray
+    """
+    return 1 / (1 + np.exp(-x))
+
+
+def sigmoid_prime(x: ndarray) -> ndarray:
+    """
+    Applies derivative of sigmoid to give input 'x'
+    sigmoid'(x) = sigmoid(x) * (1 - sigmoid(x))
+    :param x: ndarray    :return:
+    """
+    return sigmoid(x) * (1 - sigmoid(x))
+
+
+class Sigmoid(Activation):
+    def __init__(self):
+        super().__init__(sigmoid, sigmoid_prime)

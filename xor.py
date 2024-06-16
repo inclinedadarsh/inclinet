@@ -7,7 +7,7 @@ import numpy as np
 
 from train import train
 from nn import NeuralNet
-from layers import Linear, Tanh
+from layers import Linear, Sigmoid, Tanh
 
 inputs = np.array([
     [0, 0],
@@ -24,9 +24,10 @@ targets = np.array([
 ])
 
 net = NeuralNet([
-    Linear(input_size=2, output_size=2),
-    Tanh(),
-    Linear(input_size=2, output_size=2)
+    Linear(input_size=2, output_size=5),
+    # Tanh(),
+    Sigmoid(),
+    Linear(input_size=5, output_size=2)
 ])
 
 train(net, inputs, targets)
