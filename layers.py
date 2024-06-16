@@ -46,7 +46,7 @@ class Linear(Layer):
 
     def __init__(self, input_size: int, output_size: int) -> None:
         super().__init__()
-        self.grad = None
+        self.grads = {}
         self.inputs = None
         self.params["w"] = np.random.randn(input_size, output_size)
         self.params["b"] = np.random.randn(output_size)
@@ -74,8 +74,8 @@ class Linear(Layer):
         and dy/dc = f'(x)
         :param grad: ndarray        :return: ndarray
         """
-        self.grad["b"] = np.sum(grad, axis=0)
-        self.grad["w"] = self.inputs.T @ grad
+        self.grads["b"] = np.sum(grad, axis=0)
+        self.grads["w"] = self.inputs.T @ grad
         return grad @ self.params["w"].T
 
 
