@@ -22,7 +22,7 @@ pip install .
 Alternatively, you can also run the following code block and it'll install the library without manually cloning it.
 
 ```sh
-pip install git+https://github.com/yourusername/my_neural_network.git
+pip install git+https://github.com/inclinedadarsh/inclinet.git
 ```
 
 ## Requirements
