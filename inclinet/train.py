@@ -3,10 +3,10 @@ Here's a function that can train the neural network
 """
 
 from numpy import ndarray
-from neural_network import NeuralNet
-from loss import Loss, MSE
-from optimizer import Optimizer, SGD
-from data import DataIterator, BatchIterator
+from .neural_network import NeuralNet
+from .loss import Loss, MSE
+from .optimizer import Optimizer, SGD
+from .data import DataIterator, BatchIterator
 
 
 def train(net: NeuralNet,

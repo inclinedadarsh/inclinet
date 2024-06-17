@@ -5,7 +5,7 @@ we're not going to make it one.
 """
 from typing import Sequence, Iterator, Tuple
 from numpy import ndarray
-from layers import Layer
+from .layers import Layer
 
 
 class NeuralNet:
