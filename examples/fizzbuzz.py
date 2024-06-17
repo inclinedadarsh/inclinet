@@ -65,7 +65,7 @@ train(
     net,
     X_train,
     y_train,
-    num_epoch=5000,
+    num_epoch=2000,
     optimizer=SGD(lr=0.001)
 )
 
@@ -75,3 +75,24 @@ for x in range(1, 101):
     y_test_idx = np.argmax(fizz_buzz_encode(x))
     labels = [str(x), 'fizz', 'buzz', 'fizzbuzz']
     print(x, labels[pred_idx], labels[y_test_idx])
+
+# Following code is to print the accuracy
+y_test = np.array([
+    fizz_buzz_encode(x) for x in range(1, 101)
+])
+
+X_test = np.array([
+    binary_encode(x) for x in range(1, 101)
+])
+
+y_pred = net.forward(X_test)
+
+y_test_idx = np.argmax(y_test, axis=1)
+y_pred_idx = np.argmax(y_pred, axis=1)
+
+correct_predictions = np.sum(y_test_idx == y_pred_idx)
+
+total_predictions = y_test_idx.shape[0]
+accuracy = correct_predictions / total_predictions
+
+print(f"Accuracy: {accuracy:.2f}")
