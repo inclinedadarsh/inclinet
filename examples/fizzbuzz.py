@@ -10,10 +10,10 @@ from typing import List
 
 import numpy as np
 
-from inclinet.train import train
-from inclinet.neural_network import NeuralNet
-from inclinet.layers import Linear, Tanh
-from inclinet.optimizer import SGD
+from inclinet import train
+from inclinet import NeuralNet
+from inclinet import Linear, Tanh
+from inclinet import SGD
 
 
 def fizz_buzz_encode(x: int) -> List[int]:
@@ -54,13 +54,6 @@ y_train = np.array([
     fizz_buzz_encode(x) for x in range(101, 1024)
 ])
 
-X_test = np.array([
-    binary_encode(x) for x in range(1, 100)
-])
-
-y_test = np.array([
-    fizz_buzz_encode(x) for x in range(1, 100)
-])
 
 net = NeuralNet([
     Linear(input_size=10, output_size=50),
@@ -80,5 +73,5 @@ for x in range(1, 101):
     pred = net.forward(binary_encode(x))
     pred_idx = np.argmax(pred)
     y_test_idx = np.argmax(fizz_buzz_encode(x))
-    labels = [str(x), 'fizz', 'buzz', 'fizzbuz']
+    labels = [str(x), 'fizz', 'buzz', 'fizzbuzz']
     print(x, labels[pred_idx], labels[y_test_idx])
