@@ -5,9 +5,9 @@ by a simple linear model.
 
 import numpy as np
 
-from inclinet.train import train
-from inclinet.neural_network import NeuralNet
-from inclinet.layers import Linear, Sigmoid, Tanh, Relu
+from inclinet import train
+from inclinet import NeuralNet
+from inclinet import Linear, Sigmoid, Tanh, Relu
 
 inputs = np.array([
     [0, 0],
